@@ -1,0 +1,1 @@
+{"id":"chatcmpl_6a8a7c82cf001c37dc514e08","object":"chat.completion","created":1787460738,"model":"muse-spark-1.2-contributor-free","choices":[{"index":0,"message":{"role":"assistant","content":"pong"},"finish_reason":null}],"usage":{"prompt_tokens":12,"completion_tokens":317,"total_tokens":329,"prompt_tokens_details":{"cached_tokens":0}}}

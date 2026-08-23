@@ -1,0 +1,41 @@
+# runtime artifacts - never commit
+proxy.log
+proxy.err.log
+proxy.pid
+*.log
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+
+# node
+node_modules/
+npm-debug.log*
+
+# env & secrets - never commit keys
+.env
+.env.*
+*.key
+oc_zen.key
+*TEMP*key*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# grok local state (keep backup as example but ignore live config)
+# grok-config.toml is user-specific, backup is kept as reference
+grok-config.toml

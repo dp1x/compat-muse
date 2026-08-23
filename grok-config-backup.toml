@@ -1,0 +1,17 @@
+# grok-config-backup.toml — sanitized example (2026-08-24)
+# Original full Grok config contained personal settings (MCP servers, UI, memory,
+# marketplace, harness, telemetry, privacy timestamps). That snapshot was removed
+# from public history for privacy; this file now shows only the Muse / compat-muse
+# block needed to use the proxy. Replace base_url with the proxy when testing.
+#
+# See README.md "Grok config change (temporary experiment block)" for rollback.
+
+[model.muse]
+name = "Muse Spark 1.2 Contributor Free (OpenCode Zen)"
+model = "muse-spark-1.2-contributor-free"
+base_url = "https://opencode.ai/zen/v1"   # use http://127.0.0.1:8799/v1 with the proxy
+env_key = "OPENCODE_API_KEY"
+api_backend = "responses"
+context_window = 1048576                  # verified via models.dev catalog
+max_completion_tokens = 131072            # verified
+reasoning_effort = "xhigh"                # verified: minimal|low|medium|high|xhigh

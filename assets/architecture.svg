@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">compat-muse — OpenCode Zen to Grok Build bridge</title>
+<desc id="desc">Architecture: Grok Build connects to localhost proxy which forces non-streaming upstream to OpenCode Zen and synthesizes compliant SSE downstream.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#0B0F14"/>
+    <stop offset="100%" stop-color="#111827"/>
+  </linearGradient>
+  <linearGradient id="proxyGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#F59E0B"/>
+    <stop offset="100%" stop-color="#FBBF24"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="0.7" opacity="0.35"/>
+  </pattern>
+  <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#14B8A6"/>
+  </marker>
+  <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#F59E0B"/>
+  </marker>
+  <marker id="arrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+  </marker>
+  <filter id="glowAmber" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="12" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+</defs>
+
+<!-- background -->
+<rect width="1200" height="675" rx="16" fill="url(#bg)"/>
+<rect width="1200" height="675" rx="16" fill="url(#grid)"/>
+<rect width="1200" height="675" rx="16" fill="none" stroke="#1F2937" stroke-width="1.2"/>
+
+<!-- top bar -->
+<rect x="24" y="22" width="1152" height="64" rx="12" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+<!-- logo dot -->
+<circle cx="50" cy="54" r="10" fill="#F59E0B" opacity="0.95"/>
+<circle cx="50" cy="54" r="3.5" fill="#0B0F14"/>
+<text x="72" y="44" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="15" font-weight="700" letter-spacing="0.08em" fill="#F8FAFC">COMPAT-MUSE</text>
+<text x="72" y="62" font-family="Inter, ui-sans-serif, system-ui" font-size="12" font-weight="500" letter-spacing="0.02em" fill="#94A3B8">OpenCode Zen → Grok Build  •  streaming compatibility proxy  •  localhost :8799</text>
+<text x="1152" y="54" text-anchor="end" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" fill="#334155">muse-spark-1.2-contributor-free</text>
+
+<!-- subtitle badges -->
+<g font-family="Inter, ui-sans-serif, system-ui" font-size="10" font-weight="600" letter-spacing="0.06em">
+  <rect x="760" y="36" width="92" height="20" rx="10" fill="#0B1220" stroke="#1E3A5F" stroke-width="1"/>
+  <text x="806" y="49.5" text-anchor="middle" fill="#60A5FA">VERIFIED 2026-08-23</text>
+  <rect x="862" y="36" width="88" height="20" rx="10" fill="#0B1220" stroke="#16442E" stroke-width="1"/>
+  <text x="906" y="49.5" text-anchor="middle" fill="#34D399">ZERO-DEPS</text>
+  <rect x="960" y="36" width="94" height="20" rx="10" fill="#0B1220" stroke="#422006" stroke-width="1"/>
+  <text x="1007" y="49.5" text-anchor="middle" fill="#FBBF24">STABLE SSE</text>
+</g>
+
+<!-- --- NODES --- -->
+<!-- Grok Build -->
+<g>
+  <rect x="46" y="142" width="320" height="300" rx="16" fill="#0F1A1E" stroke="#134E4A" stroke-width="1.6"/>
+  <rect x="46" y="142" width="320" height="44" rx="16" fill="#0F2A26"/>
+  <rect x="46" y="170" width="320" height="16" fill="#0F2A26"/>
+  <!-- icon -->
+  <rect x="64" y="152" width="28" height="28" rx="7" fill="#14B8A6" opacity="0.18" stroke="#14B8A6" stroke-width="1"/>
+  <text x="78" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="800" fill="#14B8A6">&gt;_</text>
+  <text x="102" y="164" font-family="Inter, ui-sans-serif, system-ui" font-size="13" font-weight="700" fill="#ECFDF5">Grok Build</text>
+  <text x="102" y="178" font-family="Inter, ui-sans-serif, system-ui" font-size="10.5" font-weight="500" fill="#6EE7B7" letter-spacing="0.03em">STRICT SSE CONSUMER</text>
+
+  <text x="66" y="218" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#5EEAD4" letter-spacing="0.05em">EXPECTS</text>
+  <g font-family="Inter, ui-sans-serif, system-ui" font-size="12" fill="#E5E7EB">
+    <text x="66" y="238">• valid <tspan font-family="JetBrains Mono, monospace" font-weight="600" fill="#A7F3D0">id</tspan> on every chunk</text>
+    <text x="66" y="258">• terminal <tspan font-family="JetBrains Mono, monospace" font-weight="600" fill="#A7F3D0">finish_reason</tspan></text>
+    <text x="66" y="278">• final <tspan font-family="JetBrains Mono, monospace" font-weight="600" fill="#A7F3D0">data: [DONE]</tspan></text>
+    <text x="66" y="298">• typed <tspan font-family="JetBrains Mono, monospace" font-weight="600" fill="#A7F3D0">event:</tspan> variants only</text>
+  </g>
+  <rect x="64" y="318" width="284" height="48" rx="10" fill="#0A1512" stroke="#1A3A34" stroke-width="1"/>
+  <text x="78" y="336" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" letter-spacing="0.04em" fill="#6EE7B7">DOWNSTREAM CONTRACT</text>
+  <text x="78" y="352" font-family="JetBrains Mono, monospace" font-size="11" fill="#D1FAE5">text/event-stream  •  compliant SSE</text>
+
+  <!-- status dot -->
+  <circle cx="344" cy="164" r="6" fill="#14B8A6"/>
+  <circle cx="344" cy="164" r="2.2" fill="#ECFDF5"/>
+</g>
+
+<!-- Proxy (center, highlighted) -->
+<g>
+  <!-- glow -->
+  <rect x="432" y="124" width="336" height="338" rx="20" fill="none" stroke="#F59E0B" stroke-width="1.8" opacity="0.18" />
+  <rect x="434" y="126" width="332" height="334" rx="18" fill="#1A150A" stroke="url(#proxyGrad)" stroke-width="2"/>
+  <rect x="434" y="126" width="332" height="48" rx="18" fill="#2A1F0A"/>
+  <rect x="434" y="156" width="332" height="18" fill="#2A1F0A"/>
+  <!-- icon -->
+  <rect x="452" y="138" width="28" height="28" rx="7" fill="#F59E0B" opacity="0.22" stroke="#F59E0B" stroke-width="1"/>
+  <text x="466" y="157" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="800" fill="#FCD34D">⇄</text>
+  <text x="490" y="151" font-family="Inter, ui-sans-serif, system-ui" font-size="13" font-weight="800" fill="#FFFBEB">compat-muse</text>
+  <text x="490" y="166" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="700" fill="#FCD34D" letter-spacing="0.04em">127.0.0.1:8799</text>
+  <text x="742" y="154" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#92400E" letter-spacing="0.06em" dominant-baseline="middle">PROXY</text>
+
+  <text x="452" y="204" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#FBBF24" letter-spacing="0.06em">STRATEGY</text>
+  <g font-family="Inter, ui-sans-serif, system-ui" font-size="12.5" fill="#FEF3C7">
+    <text x="452" y="224">Forces upstream <tspan font-family="JetBrains Mono, monospace" font-weight="700" fill="#FDE68A">{ stream: false }</tspan></text>
+    <text x="452" y="244">Buffers one completion (~hundreds KB)</text>
+    <text x="452" y="264">Synthesizes clean SSE locally</text>
+  </g>
+
+  <!-- fix badges -->
+  <rect x="452" y="282" width="142" height="26" rx="13" fill="#231A04" stroke="#78350F" stroke-width="1"/>
+  <text x="459" y="299" font-family="JetBrains Mono, monospace" font-size="16" fill="#F59E0B">✕</text>
+  <text x="476" y="293" font-family="Inter, ui-sans-serif" font-size="9" font-weight="700" fill="#FDE68A" letter-spacing="0.04em">NO PING</text>
+  <text x="476" y="303" font-family="JetBrains Mono, monospace" font-size="8" fill="#FCD34D">trailing ping dropped</text>
+
+  <rect x="606" y="282" width="146" height="26" rx="13" fill="#231A04" stroke="#78350F" stroke-width="1"/>
+  <text x="613" y="299" font-family="JetBrains Mono, monospace" font-size="14" fill="#F59E0B">✓</text>
+  <text x="629" y="293" font-family="Inter, ui-sans-serif" font-size="9" font-weight="700" fill="#FDE68A" letter-spacing="0.04em">STRICT IDS</text>
+  <text x="629" y="303" font-family="JetBrains Mono, monospace" font-size="8" fill="#FCD34D">finish_reason + [DONE]</text>
+
+  <rect x="452" y="318" width="300" height="48" rx="10" fill="#120F06" stroke="#3A2A0A" stroke-width="1"/>
+  <text x="466" y="335" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700" letter-spacing="0.05em" fill="#F59E0B">ALSO BRIDGES</text>
+  <text x="466" y="352" font-family="Inter, ui-sans-serif" font-size="11" fill="#FDE68A"><tspan font-family="JetBrains Mono, monospace" font-weight="600">chat/completions</tspan>  →  <tspan font-family="JetBrains Mono, monospace" font-weight="600">/responses</tspan>  lane</text>
+
+  <rect x="452" y="378" width="300" height="54" rx="10" fill="#0F0C04" stroke="#2A1F0A" stroke-width="1"/>
+  <text x="466" y="394" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="0.06em" fill="#A16207">LOGGING  •  PRIVACY</text>
+  <text x="466" y="410" font-family="Inter, ui-sans-serif" font-size="11" fill="#FDE68A">metadata only (method / status / ms / bytes)</text>
+  <text x="466" y="424" font-family="Inter, ui-sans-serif" font-size="10" fill="#92400E">never bodies, prompts, tools, or keys</text>
+</g>
+
+<!-- OpenCode Zen -->
+<g>
+  <rect x="834" y="142" width="320" height="300" rx="16" fill="#1A1628" stroke="#4C1D95" stroke-width="1.6"/>
+  <rect x="834" y="142" width="320" height="44" rx="16" fill="#251840"/>
+  <rect x="834" y="170" width="320" height="16" fill="#251840"/>
+  <rect x="852" y="152" width="28" height="28" rx="7" fill="#A78BFA" opacity="0.22" stroke="#A78BFA" stroke-width="1"/>
+  <text x="866" y="171" text-anchor="middle" font-family="Inter, ui-sans-serif" font-size="13" font-weight="800" fill="#C4B5FD">◈</text>
+  <text x="890" y="164" font-family="Inter, ui-sans-serif, system-ui" font-size="13" font-weight="700" fill="#EDE9FE">OpenCode Zen</text>
+  <text x="890" y="178" font-family="JetBrains Mono, monospace" font-size="10.2" font-weight="500" fill="#A78BFA" letter-spacing="0.02em">opencode.ai/zen/v1</text>
+
+  <text x="852" y="218" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#F87171" letter-spacing="0.05em">VIOLATIONS (LIVE CAPTURE)</text>
+  <g font-family="Inter, ui-sans-serif, system-ui" font-size="11.5" fill="#E9D5FF">
+    <rect x="852" y="228" width="284" height="34" rx="8" fill="#2A0F1A" stroke="#4C0519" stroke-width="1"/>
+    <text x="862" y="242" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#F87171">/v1/responses</text>
+    <text x="862" y="256" font-size="11" fill="#FECDD3">trailing <tspan font-family="JetBrains Mono, monospace" font-weight="700">event: ping</tspan> after completed</text>
+
+    <rect x="852" y="270" width="284" height="52" rx="8" fill="#2A0F1A" stroke="#4C0519" stroke-width="1"/>
+    <text x="862" y="284" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#F87171">/v1/chat/completions</text>
+    <text x="862" y="298" font-size="11" fill="#FECDD3">id: ""  •  no finish_reason  •  no [DONE]</text>
+    <text x="862" y="312" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#FDA4AF">ends with {"{choices:[]}"}  (no id)</text>
+  </g>
+
+  <rect x="852" y="340" width="284" height="42" rx="10" fill="#180F2A" stroke="#2E1065" stroke-width="1"/>
+  <text x="866" y="356" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" letter-spacing="0.04em" fill="#A78BFA">OFFICIAL LANE</text>
+  <text x="866" y="372" font-family="Inter, ui-sans-serif" font-size="11" fill="#DDD6FE"><tspan font-family="JetBrains Mono, monospace" font-weight="600">/responses</tspan> is documented  •  <tspan font-family="JetBrains Mono, monospace">/chat</tspan> is unofficial</text>
+
+  <!-- warning dot -->
+  <circle cx="1132" cy="164" r="6" fill="#EF4444"/>
+  <text x="1132" y="168" text-anchor="middle" font-family="Inter, ui-sans-serif" font-size="9" font-weight="800" fill="white">!</text>
+</g>
+
+<!-- --- ARROWS --- -->
+<!-- Grok -> Proxy (top) -->
+<path d="M 366 188 L 432 188" stroke="#14B8A6" stroke-width="2.4" fill="none" marker-end="url(#arrowTeal)"/>
+<rect x="368" y="168" width="62" height="16" rx="8" fill="#0F1A1E" stroke="#134E4A" stroke-width="1"/>
+<text x="399" y="179" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="#5EEAD4" letter-spacing="0.06em">STREAM</text>
+
+<!-- Proxy -> Zen (top) -->
+<path d="M 768 188 L 834 188" stroke="#F59E0B" stroke-width="2.4" fill="none" marker-end="url(#arrowAmber)"/>
+<rect x="770" y="168" width="62" height="16" rx="8" fill="#1A150A" stroke="#78350F" stroke-width="1"/>
+<text x="801" y="179" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="#FBBF24" letter-spacing="0.04em">NON-STREAM</text>
+
+<!-- Zen -> Proxy (bottom, dashed) -->
+<path d="M 834 368 L 768 368" stroke="#94A3B8" stroke-width="1.8" fill="none" stroke-dasharray="8 6" marker-end="url(#arrowMuted)"/>
+<!-- Proxy -> Grok (bottom) -->
+<path d="M 432 368 L 366 368" stroke="#14B8A6" stroke-width="2.4" fill="none" marker-end="url(#arrowTeal)"/>
+
+<!-- Labels for bottom flows -->
+<g font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" letter-spacing="0.03em">
+  <rect x="704" y="378" width="126" height="20" rx="10" fill="#0B1220" stroke="#334155" stroke-width="1"/>
+  <text x="767" y="391" text-anchor="middle" fill="#CBD5E1">buffered JSON 200</text>
+
+  <rect x="368" y="378" width="132" height="20" rx="10" fill="#0F1A1E" stroke="#134E4A" stroke-width="1"/>
+  <text x="434" y="391" text-anchor="middle" fill="#5EEAD4">clean SSE → Grok</text>
+</g>
+
+<!-- center label bar under arrows -->
+<rect x="390" y="410" width="420" height="28" rx="14" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+<text x="600" y="428" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui" font-size="11" font-weight="600" fill="#94A3B8">upstream <tspan fill="#FDE68A" font-family="JetBrains Mono, monospace" font-weight="700">stream:false</tspan> always  •  downstream flushed immediately once ready</text>
+
+<!-- --- BOTTOM TRADEOFF + STATS --- -->
+<rect x="24" y="480" width="1152" height="86" rx="12" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+<!-- left tradeoff -->
+<text x="42" y="504" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700" letter-spacing="0.07em" fill="#F59E0B">TRADEOFF ACCEPTED BY DESIGN</text>
+<text x="42" y="524" font-family="Inter, ui-sans-serif, system-ui" font-size="12" fill="#E2E8F0">Time-to-first-byte = full upstream generation <tspan fill="#94A3B8">(measured 2–15s, long outputs more)</tspan></text>
+<text x="42" y="542" font-family="Inter, ui-sans-serif, system-ui" font-size="12" fill="#E2E8F0">Downstream frames flushed immediately once upstream completes → Grok renders quickly</text>
+<text x="42" y="556" font-family="JetBrains Mono, monospace" font-size="10" fill="#64748B">RAM: one buffered completion (hundreds of KB) + ~30–40 MB Node process  •  guaranteed schema-valid stream</text>
+
+<!-- right stats -->
+<g font-family="JetBrains Mono, monospace" text-anchor="middle">
+  <rect x="860" y="494" width="86" height="58" rx="10" fill="#0B1220" stroke="#1E293B" stroke-width="1"/>
+  <text x="903" y="514" font-size="16" font-weight="800" fill="#F8FAFC">2</text>
+  <text x="903" y="528" font-size="9" font-weight="600" letter-spacing="0.06em" fill="#94A3B8">PROTOCOLS</text>
+  <text x="903" y="540" font-size="9" fill="#64748B">chat + responses</text>
+
+  <rect x="958" y="494" width="86" height="58" rx="10" fill="#0B1220" stroke="#1E293B" stroke-width="1"/>
+  <text x="1001" y="514" font-size="16" font-weight="800" fill="#F8FAFC">100%</text>
+  <text x="1001" y="528" font-size="9" font-weight="600" letter-spacing="0.06em" fill="#94A3B8">COMPLIANT</text>
+  <text x="1001" y="540" font-size="9" fill="#64748B">SSE validation</text>
+
+  <rect x="1056" y="494" width="86" height="58" rx="10" fill="#0B1220" stroke="#1E293B" stroke-width="1"/>
+  <text x="1099" y="514" font-size="16" font-weight="800" fill="#F8FAFC">0</text>
+  <text x="1099" y="528" font-size="9" font-weight="600" letter-spacing="0.06em" fill="#94A3B8">SECRETS</text>
+  <text x="1099" y="540" font-size="9" fill="#64748B">logged ever</text>
+</g>
+
+<!-- --- FOOTER --- -->
+<rect x="24" y="584" width="1152" height="68" rx="12" fill="#0B1220" stroke="#1E293B" stroke-width="1"/>
+<g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#CBD5E1">
+  <text x="42" y="606" font-weight="600" letter-spacing="0.02em"><tspan fill="#94A3B8">RUN</tspan>  <tspan fill="#F8FAFC">python muse.py</tspan>  <tspan fill="#475569">or</tspan>  <tspan fill="#F8FAFC">node proxy.mjs</tspan>  <tspan fill="#475569">→</tspan>  <tspan fill="#5EEAD4">http://127.0.0.1:8799</tspan>  <tspan fill="#475569">→ set</tspan>  <tspan fill="#FDE68A">base_url = "http://127.0.0.1:8799/v1"</tspan></text>
+  <text x="42" y="624" fill="#64748B">Works with <tspan fill="#E2E8F0" font-weight="600">muse.py</tspan> (stdlib only, daily driver) and <tspan fill="#E2E8F0" font-weight="600">proxy.mjs</tspan> (Node, zero deps) — identical behavior. Chat requests are bridged to /responses for reliability.</text>
+  <text x="42" y="640" font-size="9.5" fill="#475569">Health: GET /health  •  Tests: node test.mjs [--quick]  •  E2E: e2e_grok_test.ps1  •  Evidence: probe/  •  Backup: grok-config-backup.toml</text>
+</g>
+<text x="1152" y="640" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#334155" letter-spacing="0.05em">PRIVACY: METHOD / PATH / STATUS / MS / BYTES ONLY</text>
+</svg>

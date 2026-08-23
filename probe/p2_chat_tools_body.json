@@ -1,0 +1,1 @@
+﻿{"model":"muse-spark-1.2-contributor-free","stream":false,"messages":[{"role":"user","content":"What is the weather in Paris right now? You MUST call the get_weather tool."}],"tools":[{"type":"function","function":{"name":"get_weather","description":"Get current weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]}}}]}
